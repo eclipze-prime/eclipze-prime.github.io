@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eclipze</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: one narrow reading column; a sunrise-eclipse band opens the page, policies follow as plain documents. */
+:root {
+  --bg: #F7F5FA; --fg: #1B1724; --muted: #5E5770; --line: #DDD7E8; --accent: #C2481E; --band: #0B0910;
+  --band-fg: #FFF3E6;
+  --display: "Archivo Black", "Arial Black", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E0C13; --fg: #ECE8F4; --muted: #A49CB8; --line: #2A2535; --accent: #FF8A3D; --band: #050407; --band-fg: #FFF3E6; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0E0C13; --fg: #ECE8F4; --muted: #A49CB8; --line: #2A2535; --accent: #FF8A3D; --band: #050407; --band-fg: #FFF3E6; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 400 17px/1.65 var(--body); }
+.band { background: var(--band); color: var(--band-fg); }
+.wrap { max-width: 44rem; margin: 0 auto; padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.hero { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding-block: 56px 48px; }
+.hero h1 { font: 400 clamp(2.4rem, 7vw, 3.6rem)/1 var(--display); letter-spacing: .06em; margin: 0; }
+.hero p { margin: 14px 0 0; color: #CFC6E2; max-width: 30rem; }
+.sun { width: 112px; height: 112px; border-radius: 50%; background: #07060A;
+  box-shadow: 0 0 0 5px #FF7A45, 0 0 22px 8px rgba(255,122,69,.55), 0 0 70px 24px rgba(177,76,255,.22);
+  position: relative; flex: none; }
+.sun::after { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #fff;
+  top: 6px; right: 10px; box-shadow: 0 0 14px 6px rgba(255,241,201,.85); }
+nav { display: flex; flex-wrap: wrap; gap: 18px; padding-block: 0 26px; font: 400 13px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+nav a { color: #FFB27A; text-decoration: none; }
+nav a:hover, nav a:focus-visible { text-decoration: underline; outline: none; }
+main .wrap { padding-block: 40px 72px; display: grid; gap: 56px; }
+section { min-width: 0; }
+h2 { font: 400 1.5rem/1.2 var(--display); letter-spacing: .03em; margin: 0 0 6px; text-wrap: balance; }
+h3 { font: 600 1.05rem/1.4 var(--body); margin: 26px 0 4px; }
+.meta { font: 400 12.5px var(--mono); color: var(--muted); letter-spacing: .04em; margin: 0 0 18px; }
+p, li { max-width: 65ch; }
+ul { padding-left: 1.2em; }
+a { color: var(--accent); }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+code { font: 400 .9em var(--mono); }
+footer { color: var(--muted); font: 400 13px var(--mono); }
+@media (max-width: 520px) { .hero { grid-template-columns: 1fr; } .sun { width: 84px; height: 84px; order: -1; } }
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1>ECLIPZE</h1>
+        <p>The best moments from the biggest streams, podcasts and shows, clipped daily for YouTube Shorts, TikTok and Instagram Reels.</p>
+      </div>
+      <div class="sun" aria-hidden="true"></div>
+    </div>
+    <nav aria-label="Pages">
+      <a href="#about">About</a><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section id="about">
+      <h2>About Eclipze</h2>
+      <p class="meta">A clipping channel run by one creator</p>
+      <p>Eclipze makes short vertical clips from long videos that creators and brands provide through paid clipping campaigns on Vyro and Content Rewards. Each clip uses only footage the campaign supplies, follows that campaign's rules, and is posted to Eclipze's own channels: YouTube <code>@eclipze-prime</code>, TikTok <code>@eclipze.prime</code> and Instagram <code>@eclipze.prime</code>.</p>
+      <p>Eclipze uses its own software to transcribe footage, pick moments and add captions. It uploads to YouTube through the official YouTube Data API, only to the Eclipze channel, which the operator owns.</p>
+    </section>
+
+    <hr class="rule">
+
+    <section id="privacy">
+      <h2>Privacy Policy</h2>
+      <p class="meta">Effective 24 October 2026</p>
+      <p>This policy covers the Eclipze software and its use of Google, YouTube and TikTok data. Eclipze is a private tool used by a single operator to manage their own YouTube channel and TikTok account. It has no other users and offers no sign-up.</p>
+      <h3>What data Eclipze accesses</h3>
+      <ul>
+        <li><strong>YouTube upload access</strong> (<code>youtube.upload</code>): used only to upload short videos to the operator's own channel.</li>
+        <li><strong>TikTok</strong> (<code>user.info.basic</code>, <code>video.publish</code>, <code>video.upload</code>): used only to identify the operator's own TikTok account and post short videos to it through the TikTok Content Posting API.</li>
+        <li><strong>YouTube read access</strong> (<code>youtube.readonly</code>): used only to read view counts and public comments on videos on the operator's own channel, to see which clips perform best and what viewers react to.</li>
+      </ul>
+      <h3>How the data is stored</h3>
+      <p>Sign-in tokens and view counts are stored only on the operator's own computer. Nothing is sent to any other server, sold, shared with third parties, or used for advertising.</p>
+      <h3>Data from other people</h3>
+      <p>Eclipze reads the text of public comments on the operator's own videos only to summarize what viewers react to. It does not store commenters' names, channel IDs or any other personal data, and it never accesses other channels or other users' private data.</p>
+      <h3>YouTube and Google</h3>
+      <p>Eclipze uses YouTube API Services. By using it you are also bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Access can be revoked at any time from <a href="https://myaccount.google.com/permissions">Google Account permissions</a>, which stops all access immediately.</p>
+      <h3>TikTok</h3>
+      <p>Eclipze uses TikTok for Developers products (Login Kit and Content Posting API) only on the operator's own TikTok account. Access can be revoked at any time in the TikTok app under Settings and privacy, Security and permissions, Apps and services permissions.</p>
+      <h3>Deleting data</h3>
+      <p>To delete all stored data, revoke access as above and delete the Eclipze data folder from the operator's computer. Questions: see Contact below.</p>
+    </section>
+
+    <hr class="rule">
+
+    <section id="terms">
+      <h2>Terms of Service</h2>
+      <p class="meta">Effective 24 October 2026</p>
+      <p>Eclipze is a private tool for one operator and is not offered to the public. Clips use only footage provided or permitted by the clipping campaigns they belong to, and follow each campaign's rules. Eclipze posts only to the operator's own accounts, through official platform APIs or by the operator. It never uses view-buying, fake accounts or engagement bots. Use of YouTube features is subject to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and use of TikTok features to the <a href="https://www.tiktok.com/legal/terms-of-service">TikTok Terms of Service</a>.</p>
+    </section>
+
+    <hr class="rule">
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <code>eclipze.prime@gmail.com</code></p>
+    </section>
+
+    <footer>© 2026 Eclipze</footer>
+  </div>
+</main>
+
+</body>
+</html>
